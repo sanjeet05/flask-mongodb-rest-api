@@ -35,14 +35,19 @@ class TaskAPI(Resource):
   def get(self, task_id):
     task = mongo.db.tasks
     new_task = task.find_one({ '_id': ObjectId(task_id) })
+    # print('new_task', new_task)    
     output = {'_id': str(new_task['_id']), 'title' : new_task['title'], 'description' : new_task['description']}
     return jsonify({'result' : output})
 
-  def put(self, task_id):    
+  def put(self, task_id):  
+    task = mongo.db.tasks  
     title = request.json['title']
     data = {'title': title}   
-    mongo.db.tasks.update({'_id': ObjectId(task_id)}, {'$set': data})    
-    return jsonify({'result' : 'task has been updated'})
+    task.update({'_id': ObjectId(task_id)}, {'$set': data})
+    new_task = task.find_one({'_id': ObjectId(task_id) })
+    # print('new_task', new_task)   
+    output = {'_id': str(new_task['_id']), 'title' : new_task['title'], 'description' : new_task['description']}
+    return jsonify({'result' : output})
 
   def delete(self, task_id):
     mongo.db.tasks.remove({ 'id': ObjectId(task_id) })
