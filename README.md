@@ -10,6 +10,24 @@ pip install -r requirements.txt
 ```
 ### API: ###
 ```
+@GET
 http://127.0.0.1:5000/api/v1/todo/tasks
 http://127.0.0.1:5000/api/v1/todo/tasks/<_id>
+
+@POST
+http://127.0.0.1:5000/api/v1/todo/tasks
+BODY = {
+	"title": "task 1",
+	"description": "description 1"
+}
+
+@PUT
+http://127.0.0.1:5000/api/v1/todo/tasks/<_id>
+BODY = {
+	"title": "task 2"
+}
+
+@DELETE
+http://127.0.0.1:5000/api/v1/todo/tasks/<_id>
+
 ```
