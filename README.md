@@ -1,12 +1,18 @@
 # flask-mongodb-rest-api
 A simple REST Api using Flask-Restful and MongoDB, used to store task with timestamps. The Api supports `get`, `put`, `post` and `delete` functions and has multiple endpoints for more complicated `get` requests.
 
+### start virtual env ###
+```
+$ source venv/bin/activate
+$ deactivate
+$ python3 app.py
 
+```
 
 ### Install requirements: ###
 Install the requirements in a virtual environment.
 ```
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 ### API Endpoints: ###
 ```
